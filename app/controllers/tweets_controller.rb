@@ -55,4 +55,20 @@ class TweetsController < ApplicationController
       redirect to '/login'
     end
   end
+  
+  patch '/tweets/:id' do
+    id = params[:id]
+    content = params[:id]
+    user = current_user
+    
+    if logged_in?
+      @tweet = Tweet.find_by(id: id, user_id: current_user.id)
+      if @tweet != nil
+        @tweet.content = 
+      else
+        redirect to '/tweets'
+      end
+    else
+      redirect to '/login'
+    end
 end
