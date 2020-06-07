@@ -64,7 +64,8 @@ class TweetsController < ApplicationController
     puts "Called"
     
     if logged_in?
-      @tweet = Tweet.find_by(id: id, user_id: current_user.id)      if @tweet != nil
+      @tweet = Tweet.find_by(id: id, user_id: current_user.id)
+      if @tweet != nil
         
         @tweet.content = content
         @tweet.save
