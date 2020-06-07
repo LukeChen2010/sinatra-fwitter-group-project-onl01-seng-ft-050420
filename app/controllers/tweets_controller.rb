@@ -61,10 +61,11 @@ class TweetsController < ApplicationController
     content = params[:content]
     user = current_user
     
+    puts "Called"
+    
     if logged_in?
-      @tweet = Tweet.find_by(id: id, user_id: current_user.id)
-      if @tweet != nil
-        puts "Called"
+      @tweet = Tweet.find_by(id: id, user_id: current_user.id)      if @tweet != nil
+        
         @tweet.content = content
         @tweet.save
       else
