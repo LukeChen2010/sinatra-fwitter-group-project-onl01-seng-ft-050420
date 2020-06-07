@@ -75,5 +75,17 @@ class TweetsController < ApplicationController
   end
   
   delete '/tweets/:id' do
+    id = params[:id]
+    content = params[:content]
+    user = current_user
+    
+    if logged_in?
+      @tweet = Tweet.find_by(id: id, user_id: current_user.id)
+      if @tweet != nil && content != ""
+        @tweet.content = content
+        @tweet.save
+      else
+        redirect "/tweets/#{id}/edit"
+      end
   end
 end
