@@ -36,7 +36,7 @@ class TweetsController < ApplicationController
       @tweet = Tweet.find_by_id(id)
       erb :'/tweets/show_tweet'
     else
-      redirect to '/login'
+      redirect '/login'
     end
   end
   
@@ -49,10 +49,10 @@ class TweetsController < ApplicationController
       if @tweet != nil
         erb :'tweets/edit_tweet'
       else
-        redirect to '/tweets'
+        redirect '/tweets'
       end
     else
-      redirect to '/login'
+      redirect '/login'
     end
   end
   
@@ -67,10 +67,10 @@ class TweetsController < ApplicationController
         @tweet.content = content
         @tweet.save
       else
-        redirect to '/tweets'
+        redirect "/tweets/#{id}/edit"
       end
     else
-      redirect to '/login'
+      redirect '/login'
     end
   end
 end
