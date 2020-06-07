@@ -61,7 +61,6 @@ class TweetsController < ApplicationController
     content = params[:content]
     user = current_user
     
-    puts "Called"
     
     if logged_in?
       @tweet = Tweet.find_by(id: id, user_id: current_user.id)
