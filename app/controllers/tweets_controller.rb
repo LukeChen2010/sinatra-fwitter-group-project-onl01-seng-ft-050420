@@ -63,11 +63,9 @@ class TweetsController < ApplicationController
     
     if logged_in?
       @tweet = Tweet.find_by(id: id, user_id: current_user.id)
-      if @tweet != nil
-        if content != ""
+      if @tweet != nil && content != ""
         @tweet.content = content
         @tweet.save
-      end
       else
         redirect to '/tweets'
       end
