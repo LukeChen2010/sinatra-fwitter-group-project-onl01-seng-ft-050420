@@ -57,8 +57,6 @@ class TweetsController < ApplicationController
   end
   
   patch '/tweets/:id' do
-    puts "CALLED"
-    
     id = params[:id]
     content = params[:content]
     user = current_user
