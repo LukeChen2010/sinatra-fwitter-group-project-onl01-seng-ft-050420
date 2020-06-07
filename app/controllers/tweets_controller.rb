@@ -64,6 +64,7 @@ class TweetsController < ApplicationController
     if logged_in?
       @tweet = Tweet.find_by(id: id, user_id: current_user.id)
       if @tweet != nil
+        puts "Called"
         @tweet.content = content
         @tweet.save
       else
